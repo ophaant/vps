@@ -89,10 +89,10 @@ WG_RUNNING=$?
 
 # Tambahan
 cd /usr/bin
-wget -O add-wg "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/add-wg.sh"
-wget -O del-wg "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/del-wg.sh"
-wget -O cek-wg "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/cek-wg.sh"
-wget -O renew-wg "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/renew-wg.sh"
+wget -O add-wg "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/add-wg.sh"
+wget -O del-wg "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/del-wg.sh"
+wget -O cek-wg "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/cek-wg.sh"
+wget -O renew-wg "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/renew-wg.sh"
 chmod +x add-wg
 chmod +x del-wg
 chmod +x cek-wg

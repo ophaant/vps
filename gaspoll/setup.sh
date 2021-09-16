@@ -13,7 +13,7 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- icanhazip.com);
-IZIN=$( curl https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/ipvps | grep $MYIP )
+IZIN=$( curl https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/ipvps | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "${green}Permission Accepted...${NC}"
 else
@@ -36,7 +36,7 @@ echo "IP=" >> /var/lib/premium-script/ipvps.conf
 
 # install screenfetch
 #cd
-#wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/screenfetch"
+#wget -O /usr/bin/screenfetch "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/screenfetch"
 #chmod +x /usr/bin/screenfetch
 #echo "clear" >> .profile
 #echo "screenfetch" >> .profile
@@ -59,7 +59,7 @@ commonname=SSHSEDANG
 email=admin@sshsedang.my.id
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/password"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -121,7 +121,7 @@ apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen rs
 
 # install neofetch
 cd
-wget -O /usr/bin/neofetch "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/neofetch"
+wget -O /usr/bin/neofetch "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/neofetch"
 chmod +x /usr/bin/neofetch
 echo "clear" >> .profile
 echo "neofetch" >> .profile
@@ -131,14 +131,14 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/vps.conf"
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -168,7 +168,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 # install squid
 cd
 apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # setting vnstat
@@ -233,7 +233,7 @@ service sslh restart
 /etc/init.d/sslh restart
 
 #OpenVPN
-wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/vpn.sh && chmod +x vpn.sh && ./vpn.sh
+wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/vpn.sh && chmod +x vpn.sh && ./vpn.sh
 
 # install fail2ban
 apt -y install fail2ban
@@ -295,55 +295,55 @@ gem install lolcat
 #apt install -y libxml-parser-perl
 
 # banner /etc/issue.net
-wget -O /etc/issue.net "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/issue.net"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/issue.net"
 echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # download script
 cd /usr/bin
-wget -O add-host "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/add-host.sh"
-wget -O about "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/about.sh"
-wget -O menu "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/trial.sh"
-wget -O hapus "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/hapus.sh"
-wget -O member "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/member.sh"
-wget -O delete "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/delete.sh"
-wget -O cek "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/cek.sh"
-wget -O restart "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/info.sh"
-wget -O ram "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/ram.sh"
-wget -O renew "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/renew.sh"
-wget -O autokill "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/tendang.sh"
-wget -O clear-log "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/clear-log.sh"
-wget -O change-port "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/change.sh"
-wget -O port-ovpn "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/port-ovpn.sh"
-wget -O port-ssl "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/port-ssl.sh"
-wget -O port-wg "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/port-wg.sh"
-wget -O port-tr "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/port-tr.sh"
-wget -O port-sstp "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/port-sstp.sh"
-wget -O port-squid "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/port-squid.sh"
-wget -O port-ws "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/port-ws.sh"
-wget -O port-vless "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/port-vless.sh"
-wget -O wbmn "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/xp.sh"
-wget -O bannerku "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu-all/bannerku"
-wget -O bbr "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu-all/bbr.sh"
-wget -O menu "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu-all/menu.sh"
-wget -O trojaan "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu-all/trojaan.sh"
-wget -O vleess "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu-all/vleess.sh"
-wget -O wgr "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu-all/wgr.sh"
-wget -O l2tp "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu-all/l2tp.sh"
-wget -O v2raay "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu-all/v2raay.sh"
-wget -O ssh "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu-all/ssh.sh"
-wget -O sstpp "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu-all/sstpp.sh"
-wget -O ssssr "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/menu-all/ssssr.sh"
-wget -O backup "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/backup.sh"
-wget -O autobackup "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/autobackup.sh"
-wget -O rclone "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/rclone.conf"
+wget -O add-host "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/add-host.sh"
+wget -O about "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/about.sh"
+wget -O menu "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu.sh"
+wget -O usernew "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/trial.sh"
+wget -O hapus "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/hapus.sh"
+wget -O member "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/member.sh"
+wget -O delete "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/delete.sh"
+wget -O cek "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/cek.sh"
+wget -O restart "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/info.sh"
+wget -O ram "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/ram.sh"
+wget -O renew "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/renew.sh"
+wget -O autokill "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/autokill.sh"
+wget -O ceklim "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/ceklim.sh"
+wget -O tendang "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/tendang.sh"
+wget -O clear-log "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/clear-log.sh"
+wget -O change-port "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/change.sh"
+wget -O port-ovpn "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/port-ovpn.sh"
+wget -O port-ssl "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/port-ssl.sh"
+wget -O port-wg "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/port-wg.sh"
+wget -O port-tr "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/port-tr.sh"
+wget -O port-sstp "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/port-sstp.sh"
+wget -O port-squid "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/port-squid.sh"
+wget -O port-ws "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/port-ws.sh"
+wget -O port-vless "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/port-vless.sh"
+wget -O wbmn "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/webmin.sh"
+wget -O xp "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/xp.sh"
+wget -O bannerku "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu-all/bannerku"
+wget -O bbr "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu-all/bbr.sh"
+wget -O menu "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu-all/menu.sh"
+wget -O trojaan "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu-all/trojaan.sh"
+wget -O vleess "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu-all/vleess.sh"
+wget -O wgr "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu-all/wgr.sh"
+wget -O l2tp "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu-all/l2tp.sh"
+wget -O v2raay "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu-all/v2raay.sh"
+wget -O ssh "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu-all/ssh.sh"
+wget -O sstpp "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu-all/sstpp.sh"
+wget -O ssssr "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/menu-all/ssssr.sh"
+wget -O backup "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/backup.sh"
+wget -O autobackup "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/autobackup.sh"
+wget -O rclone "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/rclone.conf"
 chmod +x add-host
 chmod +x script-info
 chmod +x menu
@@ -432,23 +432,23 @@ clear
 
 mkdir /var/lib/premium-script;
 echo "IP=" >> /var/lib/premium-script/ipvps.conf
-wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/cf.sh && chmod +x cf.sh && ./cf.sh
+wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/cf.sh && chmod +x cf.sh && ./cf.sh
 #install sstp
-wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
+wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/sstp.sh && chmod +x sstp.sh && screen -S sstp ./sstp.sh
 #install ssr
-wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
-wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
+wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
+wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
 #installwg
-wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 #install v2ray
-wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
 #install L2TP
-wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
-wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/set-br.sh && chmod +x set-br.sh && ./set-br.sh
+wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/ipsec.sh && chmod +x ipsec.sh && screen -S ipsec ./ipsec.sh
+wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/set-br.sh && chmod +x set-br.sh && ./set-br.sh
 #install WEBSOCKET
-wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/edu.sh && chmod +x edu.sh && ./edu.sh
-wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/websocket.sh && chmod +x websocket.sh && ./websocket.sh
-#wget https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/websocket-python/websocket.sh && chmod +x websocket.sh && screen -S websocket.sh ./websocket.sh
+wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/edu.sh && chmod +x edu.sh && ./edu.sh
+wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/websocket.sh && chmod +x websocket.sh && ./websocket.sh
+#wget https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/websocket-python/websocket.sh && chmod +x websocket.sh && screen -S websocket.sh ./websocket.sh
 rm -f /root/ssh-vpn.sh
 rm -f /root/sstp.sh
 rm -f /root/wg.sh
@@ -474,7 +474,7 @@ WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
 systemctl enable autosett
-wget -O /etc/set.sh "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/set.sh"
+wget -O /etc/set.sh "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/set.sh"
 chmod +x /etc/set.sh
 history -c
 echo "1.2" > /home/ver

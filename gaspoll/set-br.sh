@@ -1,7 +1,7 @@
 #!/bin/bash
 curl https://rclone.org/install.sh | bash
 printf "q\n" | rclone config
-wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/rclone.conf"
+wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/rclone.conf"
 git clone  https://github.com/magnific0/wondershaper.git
 cd wondershaper
 make install
@@ -26,12 +26,12 @@ logfile ~/.msmtp.log
 EOF
 chown -R www-data:www-data /etc/msmtprc
 cd /usr/bin
-wget -O autobackup "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/autobackup.sh"
-wget -O backup "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/backup.sh"
-wget -O bckp "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/bckp.sh"
-wget -O restore "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/restore.sh"
-wget -O strt "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/strt.sh"
-wget -O limit-speed "https://raw.githubusercontent.com/ophaant/vps/gaspoll/main/limit-speed.sh"
+wget -O autobackup "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/autobackup.sh"
+wget -O backup "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/backup.sh"
+wget -O bckp "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/bckp.sh"
+wget -O restore "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/restore.sh"
+wget -O strt "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/strt.sh"
+wget -O limit-speed "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/limit-speed.sh"
 chmod +x autobackup
 chmod +x backup
 chmod +x bckp
