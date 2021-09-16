@@ -25,10 +25,10 @@ touch /var/lib/premium-script/data-user-sstp
 country=ID
 state=Indonesia
 locality=Indonesia
-organization=www.sshsedang.my.id
-organizationalunit=www.sshsedang.my.id
-commonname=www.sshsedang.my.id
-email=admin@sshsedang.my.id
+organization=www.DEVELOPER.my.id
+organizationalunit=www.DEVELOPER.my.id
+commonname=www.DEVELOPER.my.id
+email=admin@DEVELOPER.my.id
 
 #install sstp
 apt-get install -y build-essential cmake gcc linux-headers-`uname -r` git libpcre3-dev libssl-dev liblua5.1-0-dev ppp

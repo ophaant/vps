@@ -15,10 +15,10 @@ ver=$VERSION_ID
 country=ID
 state=Indonesia
 locality=Indonesia
-organization=www.sshsedang.my.id
-organizationalunit=www.sshsedang.my.id
-commonname=www.sshsedang.my.id
-email=admin@www.sshsedang.my.id
+organization=www.DEVELOPER.my.id
+organizationalunit=www.DEVELOPER.my.id
+commonname=www.DEVELOPER.my.id
+email=admin@www.DEVELOPER.my.id
 
 # simple password minimal
 wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/ophaant/vps/main/gaspoll/password"

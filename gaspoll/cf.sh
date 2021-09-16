@@ -9,7 +9,7 @@ apt install jq curl -y
 DOMAIN=ssha.xyz
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
 SUB_DOMAIN=${sub}.ssha.xyz
-CF_ID=admin@sshsedang.com
+CF_ID=admin@DEVELOPER.com
 CF_KEY=b6a15f71ddd2b9f8862b0170b0d61eb3cbdc4
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com);
